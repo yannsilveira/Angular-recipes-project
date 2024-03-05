@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Recipe } from '../recipe.model';
+import { Component, OnInit } from '@angular/core';
+import { Recipe } from './recipe.model';
+import { RecipeService } from './recipe.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -7,21 +8,13 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  @Output() recipeWasSelected = new EventEmitter<Recipe>();
-  
-  recipes: Recipe[] = [
-    new Recipe('Banana Split', 'A delicious Banana Split', 'https://www.comidaereceitas.com.br/wp-content/uploads/2008/05/banana_split.jpg'),
-    new Recipe('Feijoada', 'Uma deliciosa feijoada para o Domingo', 'https://blog.biglar.com.br/wp-content/uploads/2021/10/typical-brazilian-dish-called-feijoada-made-with-black-beans-pork-sausage.jpg'),
-    new Recipe('Pizza caseira', 'Uma deliciosa pizza caseira', 'https://tudodereceitas.com.br/wp-content/uploads/2021/10/Massa-de-pizza-caseira-da-vovo-experimente-fazer-ai-1280x720.jpg'),
-    new Recipe('Pastel caseiro', 'Uma deliciosa porção de pasteizinhos', 'https://nutripao.com/wp-content/uploads/2022/08/Mini-Pastel-de-Carne-de-Sol.png'),
-  ];
+  recipes: Recipe[];
 
-  ngOnInit(): void {
-    
+  constructor(private recipeService: RecipeService) {
   }
 
-  onRecipeSelected(recipe: Recipe) {
-    this.recipeWasSelected.emit(recipe);
+  ngOnInit(): void {
+    this.recipes = this.recipeService.getRecipes();
   }
 
 }

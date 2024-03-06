@@ -35,4 +35,15 @@ export class RecipeService {
       addIngredientsToShoppingList(ingredients: Ingredient[]) {
         this.slService.addIngredients(ingredients);
       }
+
+      deleteRecipe(recipe: Recipe) {
+        this.removeRecipeFromList(this.recipes, recipe);
+      }
+
+      private removeRecipeFromList(list: Recipe[], recipe: Recipe) {
+        const index = list.indexOf(recipe);
+        if (index !== -1) {
+          list.splice(index, 1);
+        }
+      }
 }

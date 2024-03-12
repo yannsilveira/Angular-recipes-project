@@ -2,6 +2,7 @@ import { EventEmitter, Injectable } from "@angular/core";
 import { Recipe } from "./recipe.model";
 import { Ingredient } from "src/app/shared/ingredient.model";
 import { ShoppingListService } from "src/app/shopping-list/Shopping-list.service";
+import { Validators } from "@angular/forms";
 
 @Injectable()
 export class RecipeService {
@@ -30,6 +31,10 @@ export class RecipeService {
 
       getRecipes() {
         return this.recipes.slice();
+      }
+
+      getRecipe(idRecipeIndex: number) {
+        return this.recipes.slice()[idRecipeIndex];
       }
 
       addIngredientsToShoppingList(ingredients: Ingredient[]) {

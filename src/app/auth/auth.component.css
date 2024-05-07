@@ -1,0 +1,14 @@
+label {
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#switch-button {
+    margin-left: 1%;
+}

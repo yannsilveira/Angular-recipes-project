@@ -16,6 +16,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy{
   editMode = false;
   editItemIndex: number;
   editedItem: Ingredient;
+  ingredientsList: Ingredient[] = this.slService.getIngredients();
 
   constructor(private slService: ShoppingListService) {}
   
@@ -57,5 +58,10 @@ export class ShoppingEditComponent implements OnInit, OnDestroy{
   onDelete() {
     this.slService.deleteIngredient(this.editItemIndex);
     this.onClear();
+  }
+
+  clearAllShoppingList() {
+    this.slService.clearIngredients();
+    this.ingredientsList = this.slService.getIngredients();
   }
 }

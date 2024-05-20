@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { RecipeService } from '../recipe.service';
+import { Recipe } from '../recipe.model';
 
 @Component({
   selector: 'app-recipe-start',
@@ -6,5 +8,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./recipe-start.component.css']
 })
 export class RecipeStartComponent {
-
 }

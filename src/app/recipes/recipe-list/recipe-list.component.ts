@@ -37,6 +37,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
 
   onClearAllRecipes() {
     this.recipes.splice(0, this.recipes.length);
+    this.router.navigate(['/recipes']);
   }
   
 }
